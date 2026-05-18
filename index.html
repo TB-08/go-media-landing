@@ -2129,6 +2129,41 @@ footer::before {
             content-visibility: auto;
             contain-intrinsic-size: 800px;
         }
+
+        /* ==============================================================
+           EXTREME MOBILE PERFORMANCE OPTIMIZATIONS (LOW-END DEVICES)
+           ============================================================== */
+        @media (max-width: 768px) {
+            /* 1. Disable expensive Glassmorphism (backdrop-filter) */
+            .wf-card, .price-card, .case-card, .faq-item, .table-wrap, .contact-card, .form-card, .top-bar-left a, .lang-btn {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background-color: rgba(255, 255, 255, 0.98) !important;
+            }
+            .section-dark .tech-pill, .section-dark .price-card, .section-dark .case-card {
+                background-color: rgba(30, 41, 59, 0.95) !important;
+            }
+            
+            /* 2. Disable heavy continuous animations */
+            #workflow::before, #faq::before, .section::after, .section-surface::after, .section-dark::after, .shape-3d {
+                animation: none !important;
+            }
+            
+            /* 3. Strip massive box shadows */
+            .price-card.popular, .wf-card:hover, .price-card:hover, .case-card:hover, .faq-item:hover, .contact-card, .form-card {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+            }
+            
+            /* 4. Disable will-change for non-continuous elements to save VRAM */
+            .reveal, .fade-up, .fade-left, .pain-card, .stat-block, .faq-item, .form-card, .contact-card, .workflow-grid-accent {
+                will-change: auto !important;
+            }
+            
+            /* 5. Hide heavy overlapping decorative blobs and patterns */
+            .form-deco-blob, .section-glow-secondary, .solution-b-glow, .trust-glow, .grain {
+                display: none !important;
+            }
+        }
 </style>
 </head>
 <body>
