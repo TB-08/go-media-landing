@@ -2088,18 +2088,6 @@ footer::before {
             color: #ffffff;
         }
 
-        /* Scroll Progress Bar */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--c-purple-light) 0%, var(--color-cyan) 50%, var(--c-orange) 100%);
-            z-index: 10001;
-            width: 0%;
-            box-shadow: 0 0 10px rgba(96, 37, 225, 0.5);
-            transition: width 0.1s ease;
-        }
 
         /* GPU Acceleration for butter-smooth scroll animations */
         .reveal, 
@@ -2168,8 +2156,6 @@ footer::before {
 </head>
 <body>
 
-<!-- Scroll Progress Bar -->
-<div class="scroll-progress" id="scroll-progress"></div>
 
 <!-- Blueprint SVG pattern (global) -->
 <svg style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.3" preserveAspectRatio="xMidYMid slice">
@@ -3331,12 +3317,6 @@ function updateTransitions(time) {
     }
   }
 
-  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = height > 0 ? (scrollActual / height) * 100 : 0;
-  const progressEl = document.getElementById('scroll-progress');
-  if (progressEl) {
-    progressEl.style.width = scrolled + '%';
-  }
   
   requestAnimationFrame(updateTransitions);
 }
