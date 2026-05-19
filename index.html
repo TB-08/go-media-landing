@@ -3324,57 +3324,15 @@ function handleParallax(scrollY) {
   const sectionHeight = painSection.offsetHeight;
   const viewportHeight = window.innerHeight;
 
-  // 1. Cinematic 3D Morph Transition (Hero to Pain Points)
+  // 1. Cinematic 3D Morph Transition disabled for extreme high performance and smooth scrolling
   const heroSection = document.querySelector('.hero');
-  if (heroSection && !transitionFinished) {
-    const heroHeight = heroSection.offsetHeight;
-    
-    // Check if transition should be finalized
-    if (scrollY > heroHeight * 1.2) {
-      transitionFinished = true;
-      heroSection.style.transform = 'none';
-      heroSection.style.opacity = '0'; // Keep hidden when below
-      heroSection.style.filter = 'none';
-      painSection.style.transform = 'none';
-      painSection.style.opacity = '1';
-      return;
-    }
-
-    const progress = Math.max(0, Math.min(scrollY / (heroHeight * 0.8), 1));
-    const easeProgress = 1 - Math.pow(1 - progress, 3); 
-    
-    heroSection.style.transform = `
-      translateZ(${-easeProgress * 400}px) 
-      rotateX(${-easeProgress * 25}deg) 
-      translateY(${easeProgress * 150}px)
-      scale(${1 - easeProgress * 0.15})
-    `;
-    heroSection.style.opacity = 1 - easeProgress * 0.8;
-    heroSection.style.filter = `blur(${easeProgress * 10}px)`;
-
-    const painStart = heroHeight * 0.2;
-    const painProgress = Math.max(0, Math.min((scrollY - painStart) / (heroHeight * 0.8), 1));
-    const easePain = 1 - Math.pow(1 - painProgress, 3);
-
-    painSection.style.transform = `
-      translateY(${(1 - easePain) * 200}px) 
-      rotateX(${(1 - easePain) * 35}deg) 
-      translateZ(${(1 - easePain) * -200}px)
-      scale(${0.9 + easePain * 0.1})
-    `;
-    painSection.style.opacity = easePain;
-  } else if (heroSection && transitionFinished) {
-    // If user scrolls back UP after finishing, keep it clean
-    if (scrollY < 100) {
-       heroSection.style.transform = 'none';
-       heroSection.style.opacity = '1';
-       heroSection.style.filter = 'none';
-    } else if (scrollY < 800) {
-       // Allow a simpler fade or just keep it flat
-       heroSection.style.transform = 'none';
-       heroSection.style.opacity = scrollY > 400 ? '0' : '1';
-    }
+  if (heroSection) {
+    heroSection.style.transform = 'none';
+    heroSection.style.opacity = '1';
+    heroSection.style.filter = 'none';
   }
+  painSection.style.transform = 'none';
+  painSection.style.opacity = '1';
 
   // 2. Kinetic 3D Elements
   if (scrollY + viewportHeight > sectionTop && scrollY < sectionTop + sectionHeight) {
