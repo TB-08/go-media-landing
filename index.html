@@ -17,44 +17,48 @@
    CSS VARIABLES & RESET
 ============================ */
 :root {
-  --color-cyan:        #6025E1;
-  --color-cyan-light:  #9461f7;
-  --color-cyan-dark:   #4a1ab2;
-  --color-accent:      #ff5e00;
-  --color-navy:        #0C2A72;
-  --color-navy-deep:   #02031e;
-  --color-bg:          #ffffff;
-  --color-surface:     #f8fafc;
+  /* ====================================================
+     UNIFIED BRAND PALETTE (GO MEDIA BRAND STANDARDS)
+     ==================================================== */
+  --color-cyan:        #6025E1; /* Primary Electric Purple */
+  --color-cyan-light:  #9461f7; /* Secondary Light Purple */
+  --color-cyan-dark:   #4a1ab2; /* Dark Royal Purple */
+  --color-accent:      #ff5e00; /* Vibrant Accent Orange for CTAs */
+  --color-navy:        #0C2A72; /* Corporate Tech Navy Blue */
+  --color-navy-deep:   #02031e; /* Deep Space Background Navy */
+  --color-bg:          #ffffff; /* Main White Background */
+  --color-surface:     #f8fafc; /* Subtle Surface Background */
   --color-border:      rgba(226, 232, 240, 0.6);
-  --color-text:        #0f172a;
-  --color-muted:       #475569;
+  --color-text:        #0f172a; /* Dark Contrast Charcoal text */
+  --color-muted:       #475569; /* Slate Gray for secondary text */
+  
   --font: 'Montserrat', sans-serif;
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 20px 40px -10px rgba(12, 42, 114, 0.1);
   --grad-main: linear-gradient(135deg, #0C2A72 0%, #6025E1 100%);
   --grad-purple: linear-gradient(135deg, #6025E1 0%, #9461f7 100%);
 
-  /* Variables for complete page sections compatibility */
-  --c-navy: #050249;
-  --c-navy-dark: #07062C;
-  --c-navy-deep: #0C0363;
-  --c-purple: #3A21B0;
-  --c-purple-royal: #230D9A;
-  --c-purple-light: #5634D4;
-  --c-orange: #F66611;
-  --c-orange-hover: #F5872F;
-  --c-text-dark: #0F172A;
-  --c-text-body: #475569;
-  --c-text-light: #DEDFF1;
-  --c-text-lavender: #F0EFF6;
-  --c-bg-white: #FFFFFF;
-  --c-bg-surface: #F8FAFC;
-  --c-border: #E2E8F0;
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --shadow-md: 0 10px 25px rgba(5, 2, 73, 0.08);
-  --shadow-lg: 0 20px 40px rgba(5, 2, 73, 0.12);
+  /* Complete page sections compatibility mapping (synchronized with master palette) */
+  --c-navy:            #0C2A72; /* Synchronized with --color-navy */
+  --c-navy-dark:       #02031e; /* Synchronized with --color-navy-deep */
+  --c-navy-deep:       #02031e; /* Synchronized with --color-navy-deep */
+  --c-purple:          #4a1ab2; /* Synchronized with --color-cyan-dark */
+  --c-purple-royal:    #230D9A; /* Dark Tech Purple */
+  --c-purple-light:    #6025E1; /* Synchronized with --color-cyan */
+  --c-orange:          #ff5e00; /* Synchronized with --color-accent */
+  --c-orange-hover:    #ff7a33; /* Synchronized hover accent */
+  --c-text-dark:       #0f172a; /* Synchronized with --color-text */
+  --c-text-body:       #475569; /* Synchronized with --color-muted */
+  --c-text-light:      #DEDFF1;
+  --c-text-lavender:   #F0EFF6;
+  --c-bg-white:        #FFFFFF; /* Synchronized with --color-bg */
+  --c-bg-surface:      #F8FAFC; /* Synchronized with --color-surface */
+  --c-border:          #E2E8F0;
+  --radius-sm:         8px;
+  --radius-md:         16px;
+  --radius-lg:         24px;
+  --shadow-md:         0 10px 25px rgba(12, 42, 114, 0.08); /* Synchronized with --color-navy */
+  --shadow-lg:         0 20px 40px rgba(12, 42, 114, 0.12); /* Synchronized with --color-navy */
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
